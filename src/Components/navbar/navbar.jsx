@@ -7,48 +7,45 @@ import { IoMdCloseCircle } from "react-icons/io";
 
 const Navbar = () => {
   const [menu, setMenu] = useState("home");
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
   const menuRef = useRef();
 
-  const openMenu = () => {
-    menuRef.current.style.right = "0";
-  };
-
-  const closeMenu = () => {
-    menuRef.current.style.right = "-350px";
+  const toggleMenu = () => {
+    setIsMenuOpen(!isMenuOpen);
   };
 
   return (
     <div className='navbar'>
       <div className="headerimg">
         <img src={logo} alt="Logo" className="logo-img" />
-        <TiThMenu onClick={openMenu} className='nav-open'/>
+        <TiThMenu onClick={toggleMenu} className='nav-open'/>
       </div>
 
-      <ul ref={menuRef} className="nav-menu">
-        <IoMdCloseCircle onClick={closeMenu} className='nav-close'/>
+      <ul ref={menuRef} className={`nav-menu ${isMenuOpen ? 'active' : ''}`}>
+        <IoMdCloseCircle onClick={toggleMenu} className='nav-close'/>
 
         <li>
-          <AnchorLink className="anchor-link" href="#home" onClick={() => setMenu("home")}>
+          <AnchorLink className="anchor-link" href="#home" onClick={() => { setMenu("home"); toggleMenu(); }}>
             <p>Home</p>
           </AnchorLink>
         </li>
         <li>
-          <AnchorLink className="anchor-link" offset={50} href="#about" onClick={() => setMenu("about")}>
+          <AnchorLink className="anchor-link" offset={50} href="#about" onClick={() => { setMenu("about"); toggleMenu(); }}>
             <p>About Me</p>
           </AnchorLink>
         </li>
         <li>
-          <AnchorLink className="anchor-link" offset={50} href="#services" onClick={() => setMenu("services")}>
+          <AnchorLink className="anchor-link" offset={50} href="#services" onClick={() => { setMenu("services"); toggleMenu(); }}>
             <p>Services</p>
           </AnchorLink>
         </li>
         <li>
-          <AnchorLink className="anchor-link" offset={50} href="#work" onClick={() => setMenu("work")}>
+          <AnchorLink className="anchor-link" offset={50} href="#work" onClick={() => { setMenu("work"); toggleMenu(); }}>
             <p>Portfolio</p>
           </AnchorLink>
         </li>
         <li>
-          <AnchorLink className="anchor-link" offset={50} href="#contact" onClick={() => setMenu("contact")}>
+          <AnchorLink className="anchor-link" offset={50} href="#contact" onClick={() => { setMenu("contact"); toggleMenu(); }}>
             <p>Contact</p>
           </AnchorLink>
         </li>

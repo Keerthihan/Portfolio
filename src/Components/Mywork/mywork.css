@@ -4,7 +4,9 @@
     align-items: center;
     justify-content: center;
     gap: 80px;
-    margin: 80px 170px;
+    margin: 80px auto;
+    padding: 0 170px;
+    max-width: 1920px;
 }
 
 .myworktitle {
@@ -15,28 +17,36 @@
     padding: 0px 30px;
     font-size: 80px;
     font-weight: 600;
+    background: linear-gradient(270deg, #DF8908 10%, #B415FF 100%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 
 .mywork-container {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: repeat(3, 1fr);
     gap: 40px;
+    width: 100%;
 }
 
 .mywork-container img {
     box-sizing: border-box;
-    width: 419px;
+    width: 100%;
     height: 280px;
-    transition: 0.3s;
-    cursor: pointer;
     object-fit: cover;
+    border-radius: 5px;
+    transition: transform 0.3s ease, border 0.3s ease;
+    cursor: pointer;
+    border: 2px solid transparent;
 }
 
 .mywork-container img:hover {
-    transform: scale(1.10);
-    border: 4px linear-gradient(270deg, #DF8908 10%, #B415FF 100%);
-    border-radius: 10px;
-    transition: 0.3s;
+    transform: scale(1.05);
+    border: 2px solid;
+    border-image: black;
+    border-image-slice: 1;
+    box-shadow: 0 0 20px rgba(180, 21, 255, 0.3);
 }
 
 .myworkshowmore {
@@ -50,76 +60,150 @@
     font-size: 22px;
     font-weight: 500;
     margin-bottom: 80px;
-    transition: 0.6s;
+    transition: all 0.6s ease;
     cursor: pointer;
+    color: white;
+    text-decoration: none;
+    background: transparent;
 }
 
 .myworkshowmore:hover {
     gap: 30px;
-    transition: 0.6s;
+    border-color: transparent;
 }
 
-/* Mobile Responsive Styles */
-@media (max-width: 1200px) {
+/* 15.6-inch laptops (1440px) */
+@media (max-width: 1440px) {
     .mywork {
-        margin: 80px 50px;
-    }
-    
-    .mywork-container {
-        gap: 30px;
+        padding: 0 120px;
     }
     
     .mywork-container img {
-        width: 350px;
-        height: 230px;
+        height: 240px;
     }
 }
 
-@media (max-width: 768px) {
+/* 13-inch laptops (1280px) */
+@media (max-width: 1280px) {
     .mywork {
-        margin: 50px 20px;
-        gap: 50px;
+        padding: 0 80px;
     }
     
     .myworktitle h1 {
-        font-size: 50px;
-        padding: 0;
-    }
-    
-    .mywork-container {
-        grid-template-columns: 1fr 1fr;
-        gap: 20px;
+        font-size: 70px;
     }
     
     .mywork-container img {
-        width: 100%;
-        height: auto;
-        max-height: 200px;
+        height: 220px;
+    }
+    
+    .myworkshowmore {
+        padding: 25px 50px;
+    }
+}
+
+/* Small laptops (1024px) */
+@media (max-width: 1024px) {
+    .mywork {
+        padding: 0 60px;
+        gap: 70px;
+    }
+    
+    .mywork-container {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 35px;
+    }
+    
+    .myworktitle h1 {
+        font-size: 65px;
+    }
+    
+    .mywork-container img {
+        height: 250px;
+    }
+}
+
+/* Tablets (768px) */
+@media (max-width: 768px) {
+    .mywork {
+        padding: 0 40px;
+        margin: 60px auto;
+        gap: 60px;
+    }
+    
+    .myworktitle h1 {
+        font-size: 55px;
+        padding: 0 20px;
+    }
+    
+    .mywork-container img {
+        height: 200px;
     }
     
     .myworkshowmore {
         padding: 20px 40px;
-        font-size: 18px;
-        margin-bottom: 50px;
+        font-size: 20px;
+        margin-bottom: 60px;
     }
 }
 
-@media (max-width: 480px) {
+/* Large phones (600px) */
+@media (max-width: 600px) {
+    .mywork {
+        padding: 0 30px;
+        gap: 50px;
+    }
+    
     .myworktitle h1 {
-        font-size: 40px;
+        font-size: 48px;
+    }
+    
+    .mywork-container img {
+        height: 180px;
+    }
+    
+    .myworkshowmore {
+        padding: 18px 35px;
+        font-size: 18px;
+    }
+}
+
+/* Small phones (425px) */
+@media (max-width: 425px) {
+    .mywork {
+        padding: 0 20px;
+        margin: 50px auto;
+        gap: 40px;
+    }
+    
+    .myworktitle h1 {
+        font-size: 42px;
+        padding: 0 15px;
     }
     
     .mywork-container {
         grid-template-columns: 1fr;
-        gap: 15px;
+        gap: 25px;
     }
     
     .mywork-container img {
-        max-height: 180px;
+        height: 220px;
     }
     
     .myworkshowmore {
         padding: 15px 30px;
         font-size: 16px;
+        margin-bottom: 50px;
+    }
+}
+
+/* Extra small phones (375px) */
+@media (max-width: 375px) {
+    .myworktitle h1 {
+        font-size: 38px;
+    }
+    
+    .mywork-container img {
+        height: 200px;
     }
 }

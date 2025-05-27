@@ -4,7 +4,9 @@
     align-items: center;
     justify-content: center;
     gap: 80px;
-    margin: 80px 170px;
+    margin: 80px auto;
+    padding: 0 170px;
+    max-width: 1920px;
 }
 
 .about-title {
@@ -14,7 +16,7 @@
 .about-title h1 {
     padding: 0px 30px;
     font-size: 80px;
-    font-style: 600;
+    font-weight: 600;
 }
 
 .about-title img {
@@ -23,10 +25,11 @@
     right: 0;
     z-index: -1;
 }
+
 .about-left img {
-  width: 500px;    /* Reduce width as needed */
-  height: auto;    /* Maintain aspect ratio */
-  border-radius: 10px; /* Optional: rounded corners */
+    width: 500px;
+    height: auto;
+    border-radius: 10px;
 }
 
 .about-selection {
@@ -38,7 +41,6 @@
     display: flex;
     flex-direction: column;
     gap: 80px;
-
 }
 
 .aboutpara {
@@ -93,7 +95,6 @@
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-
 }
 
 .about-achievement p {
@@ -105,68 +106,178 @@
     transform: scale(1.05);
     transition: 0.3s;
 }
-.about-achievement:hover{
-     transform: scale(1.12);
+
+.about-achievement:hover {
+    transform: scale(1.12);
     transition: 0.5s;
 }
+
+/* 15.6-inch laptops (1440px) */
+@media (max-width: 1440px) {
+    .about {
+        padding: 0 120px;
+    }
+}
+
+/* 13-inch laptops (1280px) */
+@media (max-width: 1280px) {
+    .about {
+        padding: 0 80px;
+    }
+    
+    .about-title h1 {
+        font-size: 70px;
+    }
+    
+    .about-left img {
+        width: 450px;
+    }
+}
+
+/* Small laptops (1024px) */
+@media (max-width: 1024px) {
+    .about {
+        padding: 0 60px;
+        gap: 70px;
+    }
+    
+    .about-title h1 {
+        font-size: 65px;
+    }
+    
+    .about-selection {
+        gap: 60px;
+    }
+    
+    .about-left img {
+        width: 400px;
+    }
+    
+    .aboutpara,
+    .about-skills p {
+        font-size: 22px;
+    }
+    
+    .about-achievement h1 {
+        font-size: 55px;
+    }
+    
+    .about-achievement p {
+        font-size: 20px;
+    }
+}
+
+/* Tablets (768px) */
 @media (max-width: 768px) {
-  .about {
-    margin: 40px 20px;
-    gap: 50px;
-  }
+    .about {
+        padding: 0 40px;
+        margin: 60px auto;
+        gap: 60px;
+    }
+    
+    .about-title h1 {
+        font-size: 50px;
+        padding: 0 20px;
+    }
+    
+    .about-selection {
+        flex-direction: column;
+        align-items: center;
+        gap: 40px;
+    }
+    
+    .about-left img {
+        width: 100%;
+        max-width: 400px;
+    }
+    
+    .about-right {
+        gap: 40px;
+        align-items: center;
+    }
+    
+    .aboutpara {
+        text-align: center;
+        font-size: 20px;
+    }
+    
+    .about-skills {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+    }
+    
+    .about-skills p {
+        font-size: 20px;
+    }
+    
+    .about-skills hr {
+        width: 70%;
+    }
+    
+    .about-achievements {
+        flex-direction: column;
+        gap: 40px;
+    }
+    
+    .about-achievement h1 {
+        font-size: 45px;
+    }
+    
+    .about-achievement p {
+        font-size: 18px;
+    }
+}
 
-  .about-title h1 {
-    font-size: 40px;
-    padding: 0 15px;
-  }
+/* Large phones (600px) */
+@media (max-width: 600px) {
+    .about {
+        padding: 0 30px;
+        gap: 50px;
+    }
+    
+    .about-title h1 {
+        font-size: 45px;
+    }
+    
+    .about-left img {
+        max-width: 350px;
+    }
+    
+    .aboutpara {
+        font-size: 18px;
+    }
+}
 
-  .about-selection {
-    flex-direction: column;
-    align-items: center;
-    gap: 40px;
-  }
+/* Small phones (425px) */
+@media (max-width: 425px) {
+    .about {
+        padding: 0 20px;
+        margin: 50px auto;
+        gap: 40px;
+    }
+    
+    .about-title h1 {
+        font-size: 40px;
+    }
+    
+    .about-left img {
+        max-width: 300px;
+    }
+    
+    .about-achievement h1 {
+        font-size: 40px;
+    }
+}
 
-  .about-left img {
-    width: 90%;
-    max-width: 300px;
-  }
-
-  .about-right {
-    gap: 40px;
-    align-items: center;
-    text-align: center;
-  }
-
-  .aboutpara {
-    font-size: 18px;
-  }
-
-  .about-skills {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-  }
-
-  .about-skills p {
-    font-size: 20px;
-  }
-
-  .about-skills hr {
-    width: 70%;
-    height: 6px;
-  }
-
-  .about-achievements {
-    flex-direction: column;
-    gap: 30px;
-    align-items: center;
-  }
-
-  .about-achievement h1 {
-    font-size: 40px;
-  }
-
-  .about-achievement p {
-    font-size: 18px;
-  }
+/* Extra small phones (375px) */
+@media (max-width: 375px) {
+    .about-title h1 {
+        font-size: 36px;
+    }
+    
+    .about-left img {
+        max-width: 280px;
+    }
 }

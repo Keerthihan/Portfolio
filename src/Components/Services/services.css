@@ -4,7 +4,9 @@
   align-items: center;
   justify-content: center;
   gap: 80px;
-  margin: 80px 170px;
+  margin: 80px auto;
+  padding: 0 170px;
+  max-width: 1920px;
 }
 
 .services-title {
@@ -19,9 +21,10 @@
 
 .services-container {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: repeat(3, 1fr);
   gap: 40px;
   margin-bottom: 80px;
+  width: 100%;
 }
 
 .services-format {
@@ -79,85 +82,129 @@
   gap: 15px;
 }
 
-/* Responsive Design */
-@media (max-width: 1200px) {
+/* 15.6-inch laptops (1440px) */
+@media (max-width: 1440px) {
   .services {
-    margin: 80px 50px;
-  }
-  
-  .services-container {
-    gap: 30px;
-  }
-  
-  .services-format {
-    padding: 30px;
+    padding: 0 120px;
   }
 }
 
-@media (max-width: 900px) {
+/* 13-inch laptops (1280px) */
+@media (max-width: 1280px) {
+  .services {
+    padding: 0 80px;
+  }
+  
+  .services-title h1 {
+    font-size: 70px;
+  }
+  
+  .services-format {
+    padding: 35px;
+  }
+}
+
+/* Small laptops (1024px) */
+@media (max-width: 1024px) {
+  .services {
+    padding: 0 60px;
+    gap: 70px;
+  }
+  
   .services-container {
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 35px;
   }
   
   .services-title h1 {
     font-size: 65px;
   }
+  
+  .services-format h2 {
+    font-size: 28px;
+  }
 }
 
+/* Tablets (768px) */
 @media (max-width: 768px) {
   .services {
-    margin: 60px 30px;
+    padding: 0 40px;
+    margin: 60px auto;
     gap: 60px;
   }
   
   .services-title h1 {
-    font-size: 50px;
-    padding: 0;
+    font-size: 55px;
+    padding: 0 20px;
+  }
+  
+  .services-format {
+    padding: 30px;
+  }
+  
+  .services-format h3 {
+    font-size: 26px;
+  }
+}
+
+/* Large phones (600px) */
+@media (max-width: 600px) {
+  .services {
+    padding: 0 30px;
+    gap: 50px;
+  }
+  
+  .services-container {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+  
+  .services-title h1 {
+    font-size: 48px;
   }
   
   .services-format h2 {
     font-size: 26px;
   }
-  
-  .services-format p {
-    font-size: 16px;
-  }
 }
 
-@media (max-width: 600px) {
-  .services-container {
-    grid-template-columns: 1fr;
-    gap: 25px;
-  }
-  
+/* Small phones (425px) */
+@media (max-width: 425px) {
   .services {
-    margin: 50px 20px;
-    gap: 50px;
+    padding: 0 20px;
+    margin: 50px auto;
   }
   
   .services-title h1 {
-    font-size: 40px;
+    font-size: 42px;
+    padding: 0 15px;
   }
   
   .services-format {
     padding: 25px;
   }
   
-  .read-more {
-    font-size: 16px;
-  }
-}
-
-@media (max-width: 400px) {
-  .services-title h1 {
-    font-size: 36px;
+  .services-format h3 {
+    font-size: 24px;
   }
   
   .services-format h2 {
     font-size: 24px;
   }
   
-  .services-format h3 {
-    font-size: 24px;
+  .services-format p,
+  .read-more {
+    font-size: 16px;
+  }
+}
+
+/* Extra small phones (375px) */
+@media (max-width: 375px) {
+  .services-title h1 {
+    font-size: 38px;
+  }
+  
+  .services-format {
+    padding: 20px;
   }
 }

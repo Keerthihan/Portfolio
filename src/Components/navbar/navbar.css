@@ -1,33 +1,36 @@
-.navbar{
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    margin:20px 170px;
-}
-.nav-menu{
-    display:flex;
-    align-items: center;
-    list-style: none;
-    gap:60px;
-    font-size: 20px;
-}
-.headerimg {
-  
-  padding: px;
+.navbar {
   display: flex;
   align-items: center;
-  justify-content: flex-start; /* or center, based on your layout */
+  justify-content: space-between;
+  margin: 20px auto;
+  max-width: 1440px;
+  padding: 0 50px;
 }
+
+.nav-menu {
+  display: flex;
+  align-items: center;
+  list-style: none;
+  gap: 40px;
+  font-size: 18px;
+}
+
+.headerimg {
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
 .nav-menu li p {
   transition: 0.3s;
   position: relative;
 }
 
 .nav-menu li p:hover {
-  color: #B415FF; /* Change to your preferred hover color */
+  color: #B415FF;
 }
 
-/* Optional: Add an underline effect on hover */
 .nav-menu li p:hover::after {
   content: '';
   position: absolute;
@@ -40,74 +43,143 @@
 }
 
 .logo-img {
-  width: 300px; /* Adjust as needed */
-  height: 100px;
+  width: 250px;
+  height: 80px;
+  object-fit: contain;
 }
-.nav-connect{
-    padding: 20px 40px;
-    border-radius: 50px;
-    background: linear-gradient(270deg, #DF8908 10%, #B415FF 100%);
-    font-size: 22px;
-    cursor: pointer;
-    transition: 0.5s;
+
+.nav-connect {
+  padding: 15px 30px;
+  border-radius: 50px;
+  background: linear-gradient(270deg, #DF8908 10%, #B415FF 100%);
+  font-size: 18px;
+  cursor: pointer;
+  transition: 0.5s;
 }
-.nav-connect:hover{
-    transform: scale(1.05);
+
+.nav-connect:hover {
+  transform: scale(1.05);
 }
-.anchor-link{
+
+.anchor-link {
   text-decoration: none;
   color: white;
 }
-.nav-close{
+
+.nav-close, .nav-open {
   display: none;
 }
-.nav-open{
-  display: none;
-}
-@media(max-width:768px){
-  .navbar{
-    margin: 20px 50px;
+
+/* 15.6-inch laptops (typically 1366x768 or 1920x1080) */
+@media (max-width: 1366px) {
+  .navbar {
+    padding: 0 40px;
   }
-  .nav-connect{
+  .nav-menu {
+    gap: 30px;
+    font-size: 16px;
+  }
+  .logo-img {
+    width: 220px;
+    height: 70px;
+  }
+  .nav-connect {
+    padding: 12px 25px;
+    font-size: 16px;
+  }
+}
+
+/* 14-inch laptops (typically 1366x768) */
+@media (max-width: 1280px) {
+  .navbar {
+    padding: 0 30px;
+  }
+  .nav-menu {
+    gap: 25px;
+  }
+  .logo-img {
+    width: 200px;
+    height: 65px;
+  }
+}
+
+/* 13-inch laptops (typically 1280x800) */
+@media (max-width: 1024px) {
+  .navbar {
+    padding: 0 20px;
+  }
+  .nav-menu {
+    gap: 20px;
+    font-size: 15px;
+  }
+  .logo-img {
+    width: 180px;
+    height: 60px;
+  }
+  .nav-connect {
+    padding: 10px 20px;
+    font-size: 15px;
+  }
+}
+
+/* Tablet and mobile styles */
+@media (max-width: 768px) {
+  .navbar {
+    margin: 20px;
+    padding: 0;
+  }
+  .nav-connect {
     display: none;
   }
-  .nav-open{
+  .nav-open {
     display: block;
     position: fixed;
-    right:30px;
-  }
-  .nav-close{
-    display: block;
-    position: relative;
+    right: 30px;
     top: 30px;
-    left: 290px;
-    width: 30px;
+    z-index: 3;
+    font-size: 30px;
+    cursor: pointer;
   }
-  .nav-menu{
+  .nav-close {
+    display: block;
+    position: absolute;
+    top: 30px;
+    right: 30px;
+    font-size: 30px;
+    z-index: 3;
+    cursor: pointer;
+  }
+  .nav-menu {
     position: fixed;
     flex-direction: column;
-    align-items: start;
+    align-items: center;
+    justify-content: center;
     top: 0;
-    gap:30px;
-    background-color: #1f0016;
-    width:350px;
-    height: 100%;
-    z-index:2 ;
-    transition: right 0.5s;
-    right: -350px;
+    left: 0;
+    gap: 30px;
+    background-color: black;
+    width: 100%;
+    height: 100vh;
+    z-index: 2;
+    transition: transform 0.5s;
+    transform: translateX(100%);
+    padding: 0;
+    margin: 0;
   }
-  .nav-menu li{
-    font-size: 30px;
-    padding-left: 100px;
-    flex-direction: row;
-    gap: 20px;
+  .nav-menu.active {
+    transform: translateX(0);
   }
-  @keyframes underline {
+  .nav-menu li {
+    font-size: 24px;
+    padding-left: 0;
+  }
+}
+
+@keyframes underline {
   from {
     transform: scaleX(0);
   }
   to {
     transform: scaleX(1);
   }
-}
 }
