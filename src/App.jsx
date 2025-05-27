@@ -1,6 +1,5 @@
 import React from 'react';
 import Navbar from './Components/navbar/navbar.jsx';
-import Header from './Components/Header/header.jsx';
 import About from './Components/About/about.jsx';
 import Services from './Components/Services/services.jsx';
 import Mywork from './Components/Mywork/mywork.jsx';
@@ -11,7 +10,6 @@ function App() {
   return (
     <div>
       <Navbar />
-      <Header />
       <About />
       <Services />
       <Mywork />
