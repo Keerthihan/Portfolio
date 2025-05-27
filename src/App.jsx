@@ -1,5 +1,4 @@
 import React from 'react'
-import Navbar from './Components/navbar.jsx'
 import Header from './Components/Header/header.jsx'
 import About from './Components/About/about.jsx'
 import Services from './Components/Services/services.jsx'

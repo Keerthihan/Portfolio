@@ -14,7 +14,7 @@ const Services = () => {
           <div key={index} className='services-format'>
             <h3>{service.S_NO}</h3>
             <h2>{service.S_NAME}</h2>
-            <p>{service.S_DESC}</p>
+            <p>{service.s_desc}</p>
             <div className="read-more">
               <p>Read More</p>
               <FaArrowRight />

@@ -67,6 +67,14 @@
     transition: all 0.3s ease;
 }
 
+.anchor-link {
+  text-decoration: none;
+  color: #ffffff;
+  padding: 0.75rem 1.5rem;
+  border-radius: 25px;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
 .header-connect {
     background: linear-gradient(270deg, #DF8908 10%, #B415FF 100%);
     color: white;
