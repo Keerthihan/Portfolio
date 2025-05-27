@@ -1,0 +1,113 @@
+.navbar{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin:20px 170px;
+}
+.nav-menu{
+    display:flex;
+    align-items: center;
+    list-style: none;
+    gap:60px;
+    font-size: 20px;
+}
+.headerimg {
+  
+  padding: px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start; /* or center, based on your layout */
+}
+.nav-menu li p {
+  transition: 0.3s;
+  position: relative;
+}
+
+.nav-menu li p:hover {
+  color: #B415FF; /* Change to your preferred hover color */
+}
+
+/* Optional: Add an underline effect on hover */
+.nav-menu li p:hover::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  bottom: -4px;
+  left: 0;
+  background: linear-gradient(270deg, #DF8908 10%, #B415FF 100%);
+  animation: underline 0.3s ease forwards;
+}
+
+.logo-img {
+  width: 300px; /* Adjust as needed */
+  height: 100px;
+}
+.nav-connect{
+    padding: 20px 40px;
+    border-radius: 50px;
+    background: linear-gradient(270deg, #DF8908 10%, #B415FF 100%);
+    font-size: 22px;
+    cursor: pointer;
+    transition: 0.5s;
+}
+.nav-connect:hover{
+    transform: scale(1.05);
+}
+.anchor-link{
+  text-decoration: none;
+  color: white;
+}
+.nav-close{
+  display: none;
+}
+.nav-open{
+  display: none;
+}
+@media(max-width:768px){
+  .navbar{
+    margin: 20px 50px;
+  }
+  .nav-connect{
+    display: none;
+  }
+  .nav-open{
+    display: block;
+    position: fixed;
+    right:30px;
+  }
+  .nav-close{
+    display: block;
+    position: relative;
+    top: 30px;
+    left: 290px;
+    width: 30px;
+  }
+  .nav-menu{
+    position: fixed;
+    flex-direction: column;
+    align-items: start;
+    top: 0;
+    gap:30px;
+    background-color: #1f0016;
+    width:350px;
+    height: 100%;
+    z-index:2 ;
+    transition: right 0.5s;
+    right: -350px;
+  }
+  .nav-menu li{
+    font-size: 30px;
+    padding-left: 100px;
+    flex-direction: row;
+    gap: 20px;
+  }
+  @keyframes underline {
+  from {
+    transform: scaleX(0);
+  }
+  to {
+    transform: scaleX(1);
+  }
+}
+}
