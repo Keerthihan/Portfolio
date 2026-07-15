@@ -92,15 +92,15 @@
 
 .typing-text {
   display: inline-block;
-  width: 0;
+  width: auto;
   max-width: 100%;
-  overflow: hidden;
+  overflow: visible;
   white-space: nowrap;
   vertical-align: bottom;
   color: #ffffff;
   background: none;
   -webkit-text-fill-color: #ffffff;
-  animation: typeNoCursor 2.8s 0.75s steps(22, end) forwards;
+  animation: none;
 }
 
 .header p {
@@ -292,9 +292,19 @@
 @media (max-width: 980px) {
   .header {
     min-height: auto;
-    gap: 14px;
-    padding: 68px 18px 34px;
+    gap: 12px;
+    padding: 82px 18px 28px;
     justify-content: flex-start;
+  }
+
+  .header .reveal-on-scroll {
+    opacity: 1;
+    transform: none;
+    filter: none;
+  }
+
+  .hero-container {
+    margin-top: 0;
   }
 
   .hero-container {
@@ -371,7 +381,7 @@
 
 @media (max-width: 360px) {
   .header {
-    padding-top: 64px;
+    padding-top: 76px;
   }
 
   .header h1 {

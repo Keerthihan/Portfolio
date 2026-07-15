@@ -37,12 +37,13 @@ const Navbar = () => {
           </span>
         </AnchorLink>
 
-        <button className="mobile-menu-button" type="button" onClick={toggleMenu} aria-label="Open navigation menu">
+        <button className="mobile-menu-button" type="button" onClick={toggleMenu} aria-label="Open navigation menu" aria-expanded={isMenuOpen}>
           <span>Menu</span>
           <TiThMenu className='nav-open'/>
         </button>
 
-        <ul className="nav-menu desktop-menu">
+        <ul className={`nav-menu ${isMenuOpen ? 'active' : ''}`}>
+          <IoMdCloseCircle onClick={toggleMenu} className='nav-close'/>
           {navItems.map((item) => (
             <li key={item.id}>
               <AnchorLink
@@ -62,26 +63,6 @@ const Navbar = () => {
             Let&apos;s talk
           </AnchorLink>
         </div>
-      </div>
-
-      <div className={`mobile-nav-overlay ${isMenuOpen ? 'active' : ''}`}>
-        <button className="mobile-close-button" type="button" onClick={toggleMenu} aria-label="Close navigation menu">
-          <IoMdCloseCircle />
-        </button>
-        <ul className="mobile-nav-menu">
-          {navItems.map((item) => (
-            <li key={item.id}>
-              <AnchorLink
-                className={`anchor-link mobile-nav-link ${menu === item.id ? "active" : ""}`}
-                offset={item.offset}
-                href={item.href}
-                onClick={() => selectMenu(item.id)}
-              >
-                {item.label}
-              </AnchorLink>
-            </li>
-          ))}
-        </ul>
       </div>
     </>
   );
