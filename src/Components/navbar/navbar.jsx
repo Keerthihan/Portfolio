@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react';
+import React, { useState } from 'react';
 import './navbar.css';
 import logo from '../../assets/logo2.jpeg';
 import AnchorLink from 'react-anchor-link-smooth-scroll';
@@ -8,55 +8,82 @@ import { IoMdCloseCircle } from "react-icons/io";
 const Navbar = () => {
   const [menu, setMenu] = useState("home");
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const menuRef = useRef();
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
   };
 
+  const selectMenu = (item) => {
+    setMenu(item);
+    setIsMenuOpen(false);
+  };
+
+  const navItems = [
+    { id: "home", label: "Home", href: "#home", offset: 0 },
+    { id: "about", label: "About", href: "#about", offset: 50 },
+    { id: "services", label: "Services", href: "#services", offset: 50 },
+    { id: "work", label: "Work", href: "#work", offset: 50 },
+    { id: "contact", label: "Contact", href: "#contact", offset: 50 },
+  ];
+
   return (
-    <div className='navbar'>
-      <div className="headerimg">
-        <img src={logo} alt="Logo" className="logo-img" />
-        <TiThMenu onClick={toggleMenu} className='nav-open'/>
-      </div>
-
-      <ul ref={menuRef} className={`nav-menu ${isMenuOpen ? 'active' : ''}`}>
-        <IoMdCloseCircle onClick={toggleMenu} className='nav-close'/>
-
-        <li>
-          <AnchorLink className="anchor-link" href="#home" onClick={() => { setMenu("home"); toggleMenu(); }}>
-            <p>Home</p>
-          </AnchorLink>
-        </li>
-        <li>
-          <AnchorLink className="anchor-link" offset={50} href="#about" onClick={() => { setMenu("about"); toggleMenu(); }}>
-            <p>About Me</p>
-          </AnchorLink>
-        </li>
-        <li>
-          <AnchorLink className="anchor-link" offset={50} href="#services" onClick={() => { setMenu("services"); toggleMenu(); }}>
-            <p>Services</p>
-          </AnchorLink>
-        </li>
-        <li>
-          <AnchorLink className="anchor-link" offset={50} href="#work" onClick={() => { setMenu("work"); toggleMenu(); }}>
-            <p>Portfolio</p>
-          </AnchorLink>
-        </li>
-        <li>
-          <AnchorLink className="anchor-link" offset={50} href="#contact" onClick={() => { setMenu("contact"); toggleMenu(); }}>
-            <p>Contact</p>
-          </AnchorLink>
-        </li>
-      </ul>
-
-      <div className="nav-connect">
-        <AnchorLink className="anchor-link" offset={50} href="#contact" onClick={() => setMenu("contact")}>
-          Connect with me
+    <>
+      <div className='navbar'>
+        <AnchorLink className="brand-card" href="#home" onClick={() => selectMenu("home")}>
+          <img src={logo} alt="Keerthi logo" className="logo-img" />
+          <span className="brand-copy">
+            <strong>Keerthi</strong>
+            <small>Developer</small>
+          </span>
         </AnchorLink>
+
+        <button className="mobile-menu-button" type="button" onClick={toggleMenu} aria-label="Open navigation menu">
+          <span>Menu</span>
+          <TiThMenu className='nav-open'/>
+        </button>
+
+        <ul className="nav-menu desktop-menu">
+          {navItems.map((item) => (
+            <li key={item.id}>
+              <AnchorLink
+                className={`anchor-link nav-link ${menu === item.id ? "active" : ""}`}
+                offset={item.offset}
+                href={item.href}
+                onClick={() => selectMenu(item.id)}
+              >
+                <span>{item.label}</span>
+              </AnchorLink>
+            </li>
+          ))}
+        </ul>
+
+        <div className="nav-connect">
+          <AnchorLink className="anchor-link" offset={50} href="#contact" onClick={() => selectMenu("contact")}>
+            Let&apos;s talk
+          </AnchorLink>
+        </div>
       </div>
-    </div>
+
+      <div className={`mobile-nav-overlay ${isMenuOpen ? 'active' : ''}`}>
+        <button className="mobile-close-button" type="button" onClick={toggleMenu} aria-label="Close navigation menu">
+          <IoMdCloseCircle />
+        </button>
+        <ul className="mobile-nav-menu">
+          {navItems.map((item) => (
+            <li key={item.id}>
+              <AnchorLink
+                className={`anchor-link mobile-nav-link ${menu === item.id ? "active" : ""}`}
+                offset={item.offset}
+                href={item.href}
+                onClick={() => selectMenu(item.id)}
+              >
+                {item.label}
+              </AnchorLink>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </>
   );
 };
 

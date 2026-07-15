@@ -2,74 +2,154 @@
   display: flex;
   align-items: center;
   flex-direction: column;
-  gap: 25px;
-  padding: 20px;
+  gap: 26px;
+  padding: 68px 24px 36px;
   text-align: center;
   max-width: 1440px;
   margin: 0 auto;
+  min-height: calc(100vh - 120px);
+  justify-content: center;
 }
 
 .hero-container {
   display: flex;
   justify-content: center;
   align-items: center;
+  position: relative;
   width: 100%;
   max-width: 400px;
-  margin-top: 20px;
+  margin-top: 0;
+}
+
+.hero-orbit {
+  position: absolute;
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.hero-orbit-one {
+  width: 270px;
+  height: 270px;
+  border: 1px solid rgba(255, 191, 107, 0.24);
+  animation: orbitSpin 30s linear infinite;
+}
+
+.hero-orbit-two {
+  width: 228px;
+  height: 228px;
+  border: 1px dashed rgba(216, 169, 255, 0.32);
+  animation: orbitSpin 24s linear infinite reverse;
+}
+
+.hero-orbit::after {
+  content: "";
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  top: 22px;
+  left: 42px;
+  border-radius: 50%;
+  background: #ffbf6b;
+  box-shadow: 0 0 22px rgba(255, 191, 107, 0.85);
 }
 
 .profile-img {
-  width: 180px;
-  height: 180px;
+  position: relative;
+  z-index: 1;
+  width: 205px;
+  height: 205px;
   border-radius: 50%;
   object-fit: cover;
-  
+  border: 4px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 0 0 10px rgba(255, 255, 255, 0.035), 0 25px 80px rgba(180, 21, 255, 0.2);
+  animation: profileFloat 8s ease-in-out infinite;
 }
 
 .header h1 {
-  width: 100%;
-  font-size: 24px;
-  font-weight: 600;
-  line-height: 1.3;
+  width: min(100%, 980px);
+  font-size: 64px;
+  font-weight: 800;
+  line-height: 1.08;
   margin: 10px 0;
   color: white;
 }
 
-.header h1 span {
-  background: linear-gradient(270deg, #DF8908 10%, #B415FF 100%);
+.header h1 .intro-name {
+  background: linear-gradient(90deg, #DF8908 0%, #ffbf6b 35%, #B415FF 70%, #DF8908 100%);
+  background-size: 220% 100%;
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+  animation: gradientFlow 12s ease-in-out infinite;
+}
+
+.title-role {
+  display: inline;
+  color: #ffffff;
+  background: none;
+  -webkit-text-fill-color: #ffffff;
+}
+
+.typing-text {
+  display: inline-block;
+  width: 0;
+  max-width: 100%;
+  overflow: hidden;
+  white-space: nowrap;
+  vertical-align: bottom;
+  color: #ffffff;
+  background: none;
+  -webkit-text-fill-color: #ffffff;
+  animation: typeNoCursor 2.8s 0.75s steps(22, end) forwards;
 }
 
 .header p {
-  width: 100%;
-  font-size: 15px;
-  line-height: 1.6;
-  color: #d8d8d8;
-  margin: 0 0 20px 0;
+  width: min(100%, 760px);
+  font-size: 19px;
+  line-height: 1.75;
+  color: #c9c9d6;
+  margin: 0 0 12px 0;
 }
 
 .header-action {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
-  gap: 15px;
+  justify-content: center;
+  gap: 16px;
   width: 100%;
   margin-bottom: 30px;
+  flex-wrap: wrap;
 }
 
 .header-connect, .header-resume {
-  width: 100%;
-  max-width: 250px;
-  padding: 12px 0;
-  border-radius: 50px;
+  position: relative;
+  overflow: hidden;
+  width: auto;
+  min-width: 170px;
+  padding: 16px 28px;
+  border-radius: 999px;
   font-size: 16px;
-  font-weight: 500;
+  font-weight: 700;
   cursor: pointer;
-  transition: all 0.3s ease;
+  transition: all 0.55s ease;
   text-decoration: none;
   text-align: center;
+}
+
+.header-connect::before,
+.header-resume::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  transform: translateX(-120%) skewX(-18deg);
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.28), transparent);
+  transition: transform 0.9s ease;
+}
+
+.header-connect:hover::before,
+.header-resume:hover::before {
+  transform: translateX(120%) skewX(-18deg);
 }
 
 .header-connect {
@@ -79,27 +159,60 @@
 }
 
 .header-resume {
-  border: 2px solid #fff;
-  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  background: rgba(255, 255, 255, 0.06);
   color: white;
 }
 
 .header-connect:hover {
-  transform: scale(1.05);
-  box-shadow: 0 0 15px rgba(223, 137, 8, 0.5);
+  transform: translateY(-3px);
+  box-shadow: 0 18px 45px rgba(223, 137, 8, 0.25);
 }
 
 .header-resume:hover {
-  transform: scale(1.05);
-  border-color: #B415FF;
-  box-shadow: 0 0 15px rgba(180, 21, 255, 0.3);
+  transform: translateY(-3px);
+  border-color: rgba(180, 21, 255, 0.65);
+  box-shadow: 0 18px 45px rgba(180, 21, 255, 0.18);
+}
+
+@keyframes profileFloat {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-12px);
+  }
+}
+
+@keyframes orbitSpin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes gradientFlow {
+  0%, 100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+@keyframes typeNoCursor {
+  from {
+    width: 0;
+  }
+  to {
+    width: 22ch;
+  }
 }
 
 /* 15.6-inch laptops (1366px and up) */
 @media (min-width: 1366px) {
   .header {
     gap: 30px;
-    padding: 30px;
+    padding: 80px 30px 42px;
   }
   
   .profile-img {
@@ -108,23 +221,7 @@
   }
   
   .header h1 {
-    font-size: 32px;
-  }
-  
-  .header p {
-    font-size: 17px;
-    width: 80%;
-  }
-  
-  .header-action {
-    flex-direction: row;
-    justify-content: center;
-    gap: 20px;
-  }
-  
-  .header-connect, .header-resume {
-    width: auto;
-    padding: 15px 30px;
+    font-size: 72px;
   }
 }
 
@@ -132,7 +229,7 @@
 @media (min-width: 1440px) {
   .header {
     gap: 35px;
-    padding: 40px;
+    padding: 90px 40px 48px;
   }
   
   .profile-img {
@@ -141,12 +238,7 @@
   }
   
   .header h1 {
-    font-size: 36px;
-  }
-  
-  .header p {
-    font-size: 18px;
-    width: 70%;
+    font-size: 76px;
   }
 }
 
@@ -161,15 +253,6 @@
     height: 280px;
   }
   
-  .header h1 {
-    font-size: 40px;
-  }
-  
-  .header p {
-    font-size: 20px;
-    width: 60%;
-  }
-  
   .header-action {
     margin-bottom: 50px;
   }
@@ -180,8 +263,8 @@
   }
 }
 
-/* Tablet Styles (768px - 1024px) */
-@media (min-width: 768px) and (max-width: 1365px) {
+/* Tablet and small laptop styles */
+@media (min-width: 981px) and (max-width: 1365px) {
   .header {
     gap: 30px;
     padding: 30px;
@@ -193,22 +276,109 @@
   }
   
   .header h1 {
-    font-size: 28px;
+    font-size: 56px;
   }
   
   .header p {
-    font-size: 16px;
-    width: 80%;
-  }
-  
-  .header-action {
-    flex-direction: row;
-    justify-content: center;
-    gap: 20px;
+    font-size: 18px;
   }
   
   .header-connect, .header-resume {
     width: auto;
     padding: 12px 24px;
+  }
+}
+
+@media (max-width: 980px) {
+  .header {
+    min-height: auto;
+    gap: 14px;
+    padding: 68px 18px 34px;
+    justify-content: flex-start;
+  }
+
+  .hero-container {
+    max-width: 178px;
+  }
+
+  .profile-img {
+    width: 104px;
+    height: 104px;
+    box-shadow: 0 0 0 7px rgba(255, 255, 255, 0.035), 0 18px 55px rgba(180, 21, 255, 0.16);
+  }
+
+  .hero-orbit-one {
+    width: 140px;
+    height: 140px;
+  }
+
+  .hero-orbit-two {
+    width: 124px;
+    height: 124px;
+  }
+
+  .header h1 {
+    width: min(100%, 380px);
+    font-size: clamp(27px, 7.4vw, 35px);
+    line-height: 1.14;
+    margin: 4px 0;
+    overflow-wrap: break-word;
+  }
+
+  .title-role {
+    display: block;
+    margin-top: 4px;
+    color: #ffffff;
+    background: none;
+    -webkit-text-fill-color: #ffffff;
+  }
+
+  .typing-text {
+    display: inline;
+    width: auto;
+    max-width: none;
+    overflow: visible;
+    white-space: normal;
+    vertical-align: baseline;
+    animation: none;
+  }
+
+  .header p {
+    width: min(100%, 360px);
+    font-size: 14.8px;
+    line-height: 1.58;
+    margin-bottom: 2px;
+  }
+
+  .header-action {
+    flex-direction: column;
+    gap: 12px;
+    margin-bottom: 10px;
+  }
+
+  .header-connect, .header-resume {
+    width: 100%;
+    max-width: 320px;
+    padding: 13px 20px;
+  }
+}
+
+@media (max-width: 425px) {
+  .header h1 {
+    font-size: clamp(28px, 8.4vw, 34px);
+  }
+}
+
+@media (max-width: 360px) {
+  .header {
+    padding-top: 64px;
+  }
+
+  .header h1 {
+    font-size: 26px;
+  }
+
+  .header p {
+    font-size: 14.5px;
   }
 }

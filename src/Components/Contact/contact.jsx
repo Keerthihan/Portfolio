@@ -30,11 +30,11 @@ const Contact = () => {
 
     return (
         <div id='contact' className="contact">
-            <div className="contact-title">
-                <h1>Get in Touch</h1>
+            <div className="contact-title contact-heading-motion reveal-on-scroll reveal-up">
+                <h1><span>Get in Touch</span></h1>
             </div>
             <div className="contact-section">
-                <div className="contact-left">
+                <div className="contact-left contact-panel-motion reveal-on-scroll reveal-up">
                     <h1>Let's talk</h1>
                     <p>I'm currently available</p>
                     <div className="contact-details">
@@ -42,14 +42,14 @@ const Contact = () => {
                             <IoMail className="contact-icon" /><p>keerthihan05@gmail.com</p>
                         </div>
                         <div className="contact-detail">
-                            <FaPhoneVolume className="contact-icon" /><p>+94755420035</p>
+                            <FaPhoneVolume className="contact-icon" /><p>+94778809012</p>
                         </div>
                         <div className="contact-detail">
                             <MdLocationPin className="contact-icon" /><p>Colombo, Sri Lanka</p>
                         </div>
                     </div>
                 </div>
-                <form onSubmit={onSubmit} className="contact-right">
+                <form onSubmit={onSubmit} className="contact-right contact-form-motion reveal-on-scroll reveal-up" style={{ "--reveal-delay": "0.18s" }}>
                     <label htmlFor="name">Your Name</label>
                     <input type="text" id="name" name="name" placeholder="Enter your name" />
 
