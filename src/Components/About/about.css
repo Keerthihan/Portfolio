@@ -152,6 +152,20 @@
     -webkit-text-fill-color: transparent;
 }
 
+.count-up {
+    display: inline-block;
+    min-width: 2.4ch;
+    background: linear-gradient(270deg, #DF8908 10%, #B415FF 100%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-variant-numeric: tabular-nums;
+}
+
+.about-achievement.is-visible .count-up {
+    animation: countPulse 1.15s cubic-bezier(0.19, 1, 0.22, 1) both;
+}
+
 .about-achievement p {
     color: #d8d8e6;
     font-size: 17px;
@@ -171,6 +185,26 @@
 @keyframes skillFill {
     to {
         transform: scaleX(1);
+    }
+}
+
+@keyframes countPulse {
+    0% {
+        opacity: 0;
+        transform: translateY(14px) scale(0.86);
+        filter: blur(8px);
+    }
+
+    55% {
+        opacity: 1;
+        transform: translateY(-4px) scale(1.08);
+        filter: blur(0);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+        filter: blur(0);
     }
 }
 
